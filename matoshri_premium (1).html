@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matoshri - Premium Homemade Snacks | Grihaudyog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-brown: #8B4513;
+            --dark-brown: #5c2e0f;
+            --light-cream: #FFF8E7;
+            --accent-orange: #E67E22;
+            --accent-red: #C0392B;
+            --text-dark: #2c2c2c;
+            --text-light: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--light-cream);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 50%, var(--accent-orange) 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 40px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--light-cream));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--light-cream);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            position: relative;
+            height: 90vh;
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--accent-orange) 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-cream);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(230, 126, 34, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary-gold) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(50px) translateX(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+            animation: slideDown 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: slideUp 0.8s ease 0.2s backwards;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease 0.4s backwards;
+        }
+
+        .badge {
+            background: rgba(255, 248, 231, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-gold), #F9D970);
+            color: var(--primary-brown);
+            padding: 18px 50px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            animation: slideUp 0.8s ease 0.6s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.6);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .products {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, var(--light-cream) 0%, rgba(212, 175, 55, 0.1) 100%);
+            position: relative;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-brown);
+            position: relative;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 16px;
+            color: var(--accent-orange);
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .discount-banner {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(192, 57, 43, 0.9), rgba(192, 57, 43, 0.8));
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .discount-banner span {
+            color: var(--primary-gold);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--accent-orange));
+            z-index: 10;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
+            border-color: var(--primary-gold);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary-brown);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            font-size: 12px;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .product-card .cta-button {
+            width: 100%;
+            padding: 14px;
+            margin: 0;
+            animation: none;
+        }
+
+        .order-form {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .order-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .order-form .section-title,
+        .order-form .section-subtitle {
+            color: var(--light-cream);
+        }
+
+        .order-form .section-subtitle {
+            color: var(--primary-gold);
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 248, 231, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--primary-brown);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: rgba(212, 175, 55, 0.05);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-gold), #F9D970);
+            color: var(--primary-brown);
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.6);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
+            color: var(--light-cream);
+            padding: 60px 20px 30px;
+            position: relative;
+            border-top: 3px solid var(--primary-gold);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .footer-section p {
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 15px;
+            border: 2px solid var(--primary-gold);
+            margin-bottom: 40px;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+            letter-spacing: 1px;
+        }
+
+        .phone-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .phone-number:hover {
+            color: var(--light-cream);
+            transform: scale(1.05);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo-icon">🍲</div>
+                <div>
+                    <div class="logo">MATOSHRI</div>
+                    <div class="logo-subtitle">by Grihaudyog</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#products">Products</a>
+                <a href="#order">Order</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Taste the Authentic Flavors</h1>
+            <p class="hero-subtitle">Premium homemade snacks crafted with love and tradition</p>
+            
+            <div class="hero-badges">
+                <div class="badge">✓ 100% Homemade</div>
+                <div class="badge">✓ Fresh Daily</div>
+                <div class="badge">✓ No Preservatives</div>
+            </div>
+
+            <a href="#order" class="cta-button">Order Now</a>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Specialties</h2>
+            <p class="section-subtitle">Authentic Marathi Snacks</p>
+
+            <div class="discount-banner">
+                <span>🎁 SPECIAL OFFER: Discount on Orders Above 10 kg!</span>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);"></div>
+                    <div class="product-info">
+                        <div class="product-name">मुगवडी</div>
+                        <div class="product-features">हलवे • कुरकुरीत • गरम</div>
+                        <div class="product-desc">परंपरागत मुगवडी - पारंपरिक स्वाद आणि गुणवत्ता</div>
+                        <div class="product-price">₹350/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('मुगवडी - ₹350/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #FFD89B, #F4A460);"></div>
+                    <div class="product-info">
+                        <div class="product-name">कुरडई (साचावरची)</div>
+                        <div class="product-features">कुरकुरीत • ताजी • हलवे</div>
+                        <div class="product-desc">साचावरची कुरडई - खरी घरगुती स्वाद</div>
+                        <div class="product-price">₹350/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('कुरडई (साचावरची) - ₹350/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #FFB347, #FF8C69);"></div>
+                    <div class="product-info">
+                        <div class="product-name">कुरडई (पातळ)</div>
+                        <div class="product-features">पातळ • हलवे • कुरकुरीत</div>
+                        <div class="product-desc">पातळ कुरडई - सौम्य आणि स्वादिष्ट</div>
+                        <div class="product-price">₹350/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('कुरडई (पातळ) - ₹350/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #F0E68C, #DAA520);"></div>
+                    <div class="product-info">
+                        <div class="product-name">उडीद मूग पापड</div>
+                        <div class="product-features">पापड • ताजी • हलवे</div>
+                        <div class="product-desc">उडीद मूग पापड - आरोग्य आणि स्वाद</div>
+                        <div class="product-price">₹450/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('उडीद मूग पापड - ₹450/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #DC143C, #FF4500);"></div>
+                    <div class="product-info">
+                        <div class="product-name">धापोडे</div>
+                        <div class="product-features">परंपरागत • कुरकुरीत • लाल</div>
+                        <div class="product-desc">धापोडे - महाराष्ट्रीय प्रिय स्नॅक्स</div>
+                        <div class="product-price">₹450/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('धापोडे - ₹450/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #FFD700, #FFA500);"></div>
+                    <div class="product-info">
+                        <div class="product-name">बटाटा चिप्स</div>
+                        <div class="product-features">ताजे आलू • कुरकुरीत • स्वादिष्ट</div>
+                        <div class="product-desc">बटाटा चिप्स - सर्वांचा पसंदीचा!</div>
+                        <div class="product-price">₹450/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('बटाटा चिप्स - ₹450/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #F4A460, #D2691E);"></div>
+                    <div class="product-info">
+                        <div class="product-name">शेवया (तुपाच्या)</div>
+                        <div class="product-features">तुप • महक • पारंपरिक</div>
+                        <div class="product-desc">शेवया तुपाच्या - स्वर्गीय स्वाद</div>
+                        <div class="product-price">₹600/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('शेवया (तुपाच्या) - ₹600/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #DEB887, #A0826D);"></div>
+                    <div class="product-info">
+                        <div class="product-name">शेवया (रवा, मशीन)</div>
+                        <div class="product-features">मशीन • बारीक • कुरकुरीत</div>
+                        <div class="product-desc">शेवया रवा मशीन - अचूक गुणवत्ता</div>
+                        <div class="product-price">₹250/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('शेवया (रवा, मशीन) - ₹250/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #D2B48C, #8B7355);"></div>
+                    <div class="product-info">
+                        <div class="product-name">शेवया (गहू रवा)</div>
+                        <div class="product-features">गहू • पौष्टिक • सोयाचे</div>
+                        <div class="product-desc">शेवया गहू रवा - आरोग्यकर पर्याय</div>
+                        <div class="product-price">₹230/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('शेवया (गहू रवा) - ₹230/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #FFE4B5, #FFD700);"></div>
+                    <div class="product-info">
+                        <div class="product-name">साबुदाणा बटाटा पापड</div>
+                        <div class="product-features">पापड • कुरकुरीत • पाकीट</div>
+                        <div class="product-desc">साबुदाणा बटाटा पापड - सोयाचे आणि स्वादिष्ट</div>
+                        <div class="product-price">₹250/पाकीट</div>
+                        <button class="cta-button" onclick="scrollToOrder('साबुदाणा बटाटा पापड - ₹250/पाकीट')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #D4AF37, #FFA500);"></div>
+                    <div class="product-info">
+                        <div class="product-name">साबुदाणा भगर चकली</div>
+                        <div class="product-features">चकली • परंपरागत • घरगुती</div>
+                        <div class="product-desc">साबुदाणा भगर चकली - पारंपरिक आणि स्वादिष्ट</div>
+                        <div class="product-price">₹350/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('साबुदाणा भगर चकली - ₹350/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #FF6347, #DC143C);"></div>
+                    <div class="product-info">
+                        <div class="product-name">सरगुंडे</div>
+                        <div class="product-features">कुरकुरीत • ताजे • गरम</div>
+                        <div class="product-desc">सरगुंडे - सर्वांचा प्रिय पारंपरिक स्नॅक्स</div>
+                        <div class="product-price">₹400/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('सरगुंडे - ₹400/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #8B6914, #D4AF37);"></div>
+                    <div class="product-info">
+                        <div class="product-name">सातूचे पीठ</div>
+                        <div class="product-features">पीठ • पौष्टिक • परंपरागत</div>
+                        <div class="product-desc">सातूचे पीठ - आरोग्य आणि पोषण</div>
+                        <div class="product-price">₹500/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('सातूचे पीठ - ₹500/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #CD853F, #A0522D);"></div>
+                    <div class="product-info">
+                        <div class="product-name">खारोडी</div>
+                        <div class="product-features">कुरकुरीत • खारी • स्वादिष्ट</div>
+                        <div class="product-desc">खारोडी - परंपरागत महाराष्ट्रीय स्नॅक्स</div>
+                        <div class="product-price">₹400/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('खारोडी - ₹400/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+
+                <div class="product-card scroll-reveal">
+                    <div class="product-image" style="background: linear-gradient(135deg, #8B0000, #FF6347);"></div>
+                    <div class="product-info">
+                        <div class="product-name">मेतकूट</div>
+                        <div class="product-features">मेथी • ताजे • पारंपरिक</div>
+                        <div class="product-desc">मेतकूट - मेथीचा सुगंध आणि स्वाद</div>
+                        <div class="product-price">₹400/kg</div>
+                        <button class="cta-button" onclick="scrollToOrder('मेतकूट - ₹400/kg')">ऑर्डर करा</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="order-form" id="order">
+        <div class="container">
+            <h2 class="section-title">Place Your Order</h2>
+            <p class="section-subtitle">Easy & Fast Ordering Process</p>
+
+            <div class="form-container">
+                <form id="orderForm">
+                    <div style="background: rgba(212, 175, 55, 0.2); padding: 15px; border-radius: 10px; margin-bottom: 25px; border-left: 4px solid var(--primary-gold);">
+                        <p style="color: var(--primary-brown); font-weight: 700; font-size: 14px;">💰 Discount on Orders Above 10 kg</p>
+                        <p style="color: var(--primary-brown); font-size: 12px; margin-top: 5px;">Contact us for special bulk pricing!</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">आपले नाव *</label>
+                        <input type="text" id="name" name="name" placeholder="पूर्ण नाव दाखल करा" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">मोबाईल क्रमांक *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="10 अंकी मोबाईल क्रमांक" pattern="[0-9]{10}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">वितरण पता *</label>
+                        <textarea id="address" name="address" placeholder="संपूर्ण वितरण पता दाखल करा" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label style="margin-bottom: 20px;">📦 उत्पाद निवडा (Multiple Select करा) *</label>
+                        <div id="productsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p1" name="products" value="मुगवडी - ₹350/kg">
+                                <label for="p1">मुगवडी - ₹350/kg</label>
+                                <input type="number" class="qty-input" id="p1_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p2" name="products" value="कुरडई (साचावरची) - ₹350/kg">
+                                <label for="p2">कुरडई (साचावरची) - ₹350/kg</label>
+                                <input type="number" class="qty-input" id="p2_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p3" name="products" value="कुरडई (पातळ) - ₹350/kg">
+                                <label for="p3">कुरडई (पातळ) - ₹350/kg</label>
+                                <input type="number" class="qty-input" id="p3_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p4" name="products" value="उडीद मूग पापड - ₹450/kg">
+                                <label for="p4">उडीद मूग पापड - ₹450/kg</label>
+                                <input type="number" class="qty-input" id="p4_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p5" name="products" value="धापोडे - ₹450/kg">
+                                <label for="p5">धापोडे - ₹450/kg</label>
+                                <input type="number" class="qty-input" id="p5_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p6" name="products" value="बटाटा चिप्स - ₹450/kg">
+                                <label for="p6">बटाटा चिप्स - ₹450/kg</label>
+                                <input type="number" class="qty-input" id="p6_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p7" name="products" value="शेवया (तुपाच्या) - ₹600/kg">
+                                <label for="p7">शेवया (तुपाच्या) - ₹600/kg</label>
+                                <input type="number" class="qty-input" id="p7_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p8" name="products" value="शेवया (रवा, मशीन) - ₹250/kg">
+                                <label for="p8">शेवया (रवा, मशीन) - ₹250/kg</label>
+                                <input type="number" class="qty-input" id="p8_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p9" name="products" value="शेवया (गहू रवा) - ₹230/kg">
+                                <label for="p9">शेवया (गहू रवा) - ₹230/kg</label>
+                                <input type="number" class="qty-input" id="p9_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p10" name="products" value="साबुदाणा बटाटा पापड - ₹250/पाकीट">
+                                <label for="p10">साबुदाणा बटाटा पापड - ₹250/पाकीट</label>
+                                <input type="number" class="qty-input" id="p10_qty" placeholder="पाकीट" min="0" step="1" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p11" name="products" value="साबुदाणा भगर चकली - ₹350/kg">
+                                <label for="p11">साबुदाणा भगर चकली - ₹350/kg</label>
+                                <input type="number" class="qty-input" id="p11_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p12" name="products" value="सरगुंडे - ₹400/kg">
+                                <label for="p12">सरगुंडे - ₹400/kg</label>
+                                <input type="number" class="qty-input" id="p12_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p13" name="products" value="सातूचे पीठ - ₹500/kg">
+                                <label for="p13">सातूचे पीठ - ₹500/kg</label>
+                                <input type="number" class="qty-input" id="p13_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p14" name="products" value="खारोडी - ₹400/kg">
+                                <label for="p14">खारोडी - ₹400/kg</label>
+                                <input type="number" class="qty-input" id="p14_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div class="product-checkbox">
+                                <input type="checkbox" id="p15" name="products" value="मेतकूट - ₹400/kg">
+                                <label for="p15">मेतकूट - ₹400/kg</label>
+                                <input type="number" class="qty-input" id="p15_qty" placeholder="किलो" min="0" step="0.5" style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .product-checkbox {
+                            background: rgba(212, 175, 55, 0.1);
+                            padding: 12px;
+                            border-radius: 8px;
+                            border: 1px solid rgba(212, 175, 55, 0.3);
+                        }
+                        .product-checkbox input[type="checkbox"] {
+                            margin-right: 8px;
+                            cursor: pointer;
+                        }
+                        .product-checkbox label {
+                            cursor: pointer;
+                            font-weight: 600;
+                            color: var(--primary-brown);
+                            margin: 0;
+                        }
+                    </style>
+
+                    <div class="form-group">
+                        <label for="message">विशेष सूचना (ऐच्छिक)</label>
+                        <textarea id="message" name="message" placeholder="कोणतीही विशेष विनंती किंवा आहार संबंधित प्राधान्यता..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">WhatsApp द्वारे ऑर्डर सबमिट करा</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="contact-info">
+            <h3>📞 Get In Touch</h3>
+            <a href="tel:+919309321052" class="phone-number">+91 9309321052</a>
+            <p style="margin-top: 15px; font-size: 14px;">Call for bulk orders, custom requirements, or any inquiries</p>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Matoshri</h3>
+                <p>Premium homemade snacks by Grihaudyog. Delivering authentic flavors and traditional recipes to your doorstep with love and quality.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p>🔗 <a href="#products" style="color: var(--primary-gold); text-decoration: none;">Products</a></p>
+                <p>🔗 <a href="#order" style="color: var(--primary-gold); text-decoration: none;">Order Now</a></p>
+                <p>🔗 <a href="#contact" style="color: var(--primary-gold); text-decoration: none;">Contact</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hours of Operation</h3>
+                <p>Monday - Sunday<br>9:00 AM - 8:00 PM</p>
+                <p style="margin-top: 15px; font-size: 12px; opacity: 0.8;">⚡ Fresh snacks available daily</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Matoshri by Grihaudyog. All rights reserved. | Crafted with ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        scrollRevealElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        function scrollToOrder(product) {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('name').focus();
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const message = document.getElementById('message').value;
+
+            // Get all selected products with quantities
+            let orderDetails = '';
+            let totalQuantity = 0;
+            let hasError = false;
+
+            const checkboxes = document.querySelectorAll('input[name="products"]:checked');
+            
+            if (checkboxes.length === 0) {
+                alert('कृपया कम से कम एक उत्पाद निवडा!');
+                return;
+            }
+
+            checkboxes.forEach(checkbox => {
+                const productName = checkbox.value;
+                const qtyId = checkbox.id + '_qty';
+                const qtyInput = document.getElementById(qtyId);
+                const quantity = parseFloat(qtyInput.value || 0);
+
+                if (quantity === 0 || qtyInput.value === '') {
+                    hasError = true;
+                    qtyInput.style.borderColor = '#ff0000';
+                    return;
+                }
+
+                orderDetails += `🛒 ${productName} - ${quantity}\n`;
+                totalQuantity += quantity;
+                qtyInput.style.borderColor = '#ddd';
+            });
+
+            if (hasError) {
+                alert('कृपया सभी चयनित उत्पादों के लिए प्रमाण दर्ज करें!');
+                return;
+            }
+
+            let discountText = '';
+            if (totalQuantity >= 10) {
+                discountText = `\n\n💰 *विशेष सूट योग्य:* हाँ (10 किलो+)`;
+            }
+
+            const whatsappMessage = `🍲 *Matoshri वेबसाइटवरून नवीन ऑर्डर*\n\n*ग्राहक तपशील:*\n📝 नाव: ${name}\n📱 फोन: ${phone}\n\n*ऑर्डर तपशील:*\n${orderDetails}📦 कुल प्रमाण: ${totalQuantity} किलो\n\n*वितरण पता:*\n📍 ${address}\n${message ? '\n*विशेष सूचना:*\n' + message : ''}${discountText}`;
+            
+            const whatsappURL = `https://api.whatsapp.com/send?phone=919309321052&text=${encodeURIComponent(whatsappMessage)}`;
+            
+            window.open(whatsappURL, '_blank');
+            
+            this.reset();
+            alert('ऑर्डर तपशील तयार झाले! WhatsApp उघडेल. धन्यवाद!');
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
+            }
+        });
+    </script>
+</body>
+</html>
